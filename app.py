@@ -1,6 +1,8 @@
 from flask import Flask, redirect, render_template, request
 
+from block import *
 
+app = Flask(__name__, static_url_path='/assets', static_folder='web/assets', template_folder='web/views')
 
 
 @app.route('/', methods=['GET'])
@@ -17,5 +19,12 @@ def add_to_list():
     create_block(anime_name=anime_name, anime_category=anime_category, watched_before=watched_before)
     
     return redirect('/')
+
+@app.route('/check-list-integrity', methods=['GET'])
+def check_list_integrity():
+    blocks = check_integrity()
+
+    return render_template('index.html', blocks=blocks)
+
 if __name__ == "__main__":
     app.run(debug=True)

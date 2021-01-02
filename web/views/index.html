@@ -50,6 +50,37 @@
             </div>
         </div>
         
+        <hr>
+
+        <div class="row mt-5">
+
+            <div class="col-md-12 col-sm-12">
+                <h2 class="h2 text-muted text-center">Check list integrity</h2>
+                
+                <div class="text-center mb-3">
+                    <a href="{{ url_for('check_list_integrity') }}" class="btn btn-info">
+                        <i class="fas fa-search"></i>
+                        Check
+                    </a>
+                </div>
+                
+                <ul class="list-group text-center">
+
+                    {% for block in blocks %}
+                        {% if block['result'] != 'Ok' %}
+                            <li class="list-group-item list-group-item-danger">
+                                Block: {{ block['block'] }}: {{ block['result'] }}
+                            </li>
+                        {% else %}
+                            <li class="list-group-item list-group-item-success">
+                                Block: {{ block['block'] }}: {{ block['result'] }}
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>
