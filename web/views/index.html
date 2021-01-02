@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime | Blocks Store</title>
+
+    <link rel="stylesheet" href="/assets/libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/libs/fontawesome/css/all.min.css">
+</head>
+<body class="d-flex justify-content-around align-items-center" style="min-height: 600px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h1 class="h1 text-muted text-center">Add new anime to anime list</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{ url_for('add_to_list') }}" method="POST">
+                            
+                            <div class="form-group">
+                                <label for="anime_name">Anime Name</label>
+                                <input type="text" name="anime_name" id="anime_name" class="form-control" placeholder="Write Anime Name..." required autofocus>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="anime_category">Anime Category</label>
+                                <input type="text" name="anime_category" id="anime_category" class="form-control" placeholder="Write Anime Category..." required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="watched_before">Watched Before</label>
+                                <select name="watched_before" id="watched_before" class="form-control" placeholder="Did you Watch this anime before ?" required>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">no</option>
+                                    <option value="maybe">maybe</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <button class="btn btn-success">
+                                    <i class="fas fa-plus"></i>
+                                    Add to list
+                                </button>
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
